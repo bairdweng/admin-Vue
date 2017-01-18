@@ -1,0 +1,62 @@
+
+@import 'HBtheme.less';
+@import 'layout.less';
+
+// 字体适配
+@media screen and (max-width: 320px) {
+    body{font-size: 14px;}
+}
+@media screen and (min-width: 321px) and (max-width: 413px) {
+    body{font-size: 16px;}
+}
+@media screen and (min-width: 414px) and (max-width: 639px) {
+    body{font-size: 17px;}
+}
+@media screen and (min-width: 640px) {
+    body{font-size: 18px;}
+}
+
+
+/**
+ * 自定义全局样式.
+ */
+
+//重置 material-icons 使与中文对齐;
+.material-icons{vertical-align:middle}
+
+//
+.hb-plane{
+    background: @dialogBackgroundColor;
+    margin-top: 5px;
+    .hb-title{
+        height:48px;
+        line-height: 48px;
+        font-weight:bold;
+        padding-left:10px;
+        color: @textColor;
+        i.material-icons{
+            color:@pink500;
+        }
+    }
+    .hb-body{
+        padding: 10px;
+    }
+}
+.hb-plane-m{
+    background: @dialogBackgroundColor;
+    margin: 10px;
+    border-radius: 3px;
+    .hb-title{
+        height:48px;
+        line-height: 48px;
+        font-weight:bold;
+        padding-left:10px;
+        color: @textColor;
+        i.material-icons{
+            color:@pink500;
+        }
+    }
+    .hb-body{
+        padding: 10px;
+    }
+}

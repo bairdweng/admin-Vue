@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="17592fc4-7b8d-4f87-b2c7-4c8d8e11c264" name="腾讯云" url="http://123.207.47.17">
+        <fileTransfer host="123.207.47.17" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="2394bfb4-dde7-4f3c-bd36-25256518139a" name="webapp测试服务器" url="http://192.168.9.249">
+        <fileTransfer host="192.168.9.249" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

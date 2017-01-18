@@ -1,0 +1,94 @@
+
+@import 'partials/variables'; // colors, fonts etc...
+
+@import 'partials/mixins'; // custom mixins
+
+@import 'partials/layout'; // responsive grid and media queries
+
+.timeline{
+  .timeline-button{
+    min-width:48px;
+    height: 26px;
+    line-height: 26px;
+    font-size:12px;
+  }
+  .tag {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 290486px;
+    color: #4a4a4a;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-size: 0.75rem;
+    height: 2em;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    line-height: 1.5;
+    padding-left: 0.875em;
+    padding-right: 0.875em;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+
+  .tag .delete {
+    margin-left: 0.25em;
+    margin-right: -0.5em;
+  }
+
+  .tag.is-white {
+    background-color: white;
+    color: #0a0a0a;
+  }
+
+  .tag.is-black {
+    background-color: #0a0a0a;
+    color: white;
+  }
+
+  .tag.is-light {
+    background-color: whitesmoke;
+    color: #363636;
+  }
+
+  .tag.is-dark {
+    background-color: #363636;
+    color: whitesmoke;
+  }
+
+  .tag.is-primary {
+    background-color: #00d1b2;
+    color: #fff;
+  }
+
+  .tag.is-info {
+    background-color: #3273dc;
+    color: #fff;
+  }
+
+  .tag.is-success {
+    background-color: #23d160;
+    color: #fff;
+  }
+
+  .tag.is-warning {
+    background-color: #ffdd57;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .tag.is-danger {
+    background-color: #ff3860;
+    color: #fff;
+  }
+
+  .tag.is-medium {
+    font-size: 1rem;
+  }
+
+  .tag.is-large {
+    font-size: 1.25rem;
+  }
+}
