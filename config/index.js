@@ -1,12 +1,14 @@
+'use strict'
+
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
+const path = require('path')
 
 module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: 'assets',
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -18,8 +20,8 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
-    assetsSubDirectory: 'static',
+    port: process.env.DEV_PORT || 8080,
+    assetsSubDirectory: 'assets',
     assetsPublicPath: '/',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
