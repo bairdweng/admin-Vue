@@ -34,9 +34,7 @@ export default {
   @include mobile() {
     margin-left: 0;
   }
-
 }
-
 .app-content {
   padding: 20px;
 }

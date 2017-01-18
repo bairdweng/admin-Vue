@@ -21,7 +21,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.css', '.json'],
+    extensions: ['.js', '.vue', '.css', '.json','.sass'],
     alias: {
       // https://github.com/vuejs/vue/wiki/Vue-2.0-RC-Starter-Resources
       // vue: 'vue/dist/vue',
@@ -35,7 +35,6 @@ module.exports = {
       // vue-addon
       'vuex-store': path.resolve(__dirname, '../client/store'),
       'modules': path.resolve(__dirname, './node_modules/')
-
     }
   },
   module: {
