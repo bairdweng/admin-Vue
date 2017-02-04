@@ -12,7 +12,7 @@ import './tools/tools'
 
 import 'font-awesome/css/font-awesome.css'
 import 'bulma/css/bulma.css'
-
+import 'animate.css'
 import Mock from './server/mock.js'
 // MuseUI.config({
 //     disableTouchRipple: true,

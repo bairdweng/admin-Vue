@@ -1,158 +1,53 @@
 <template>
-<<<<<<< HEAD
-   <div>
-       <nav class="nav">
-           <div class="nav-left">
-               <a class="nav-item">
-                   <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
-               </a>
-           </div>
-           <div class="nav-center">
-               <a class="nav-item">
-              <span class="icon">
-                <i class="fa fa-github"></i>
-              </span>
-               </a>
-               <a class="nav-item">
-              <span class="icon">
-                <i class="fa fa-twitter"></i>
-              </span>
-               </a>
-           </div>
-
-           <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-           <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-           <span class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-
-           <!-- This "nav-menu" is hidden on mobile -->
-           <!-- Add the modifier "is-active" to display it on mobile -->
-           <div class="nav-right nav-menu">
-               <a class="nav-item">
-                   Home
-               </a>
-               <a class="nav-item">
-                   Documentation
-               </a>
-               <a class="nav-item">
-                   Blog
-               </a>
-
-               <span class="nav-item">
-              <a class="button">
-                <span class="icon">
-                  <i class="fa fa-twitter"></i>
-                </span>
-                <span>Tweet</span>
-              </a>
-              <a class="button is-primary">
-                <span class="icon">
-                  <i class="fa fa-download"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span>
-           </div>
-       </nav>
-   </div>
+<div id="app">
+    <Navbar></Navbar>
+    <Slidebar :show="commConf.showSiderbar"></Slidebar>
+</div>
 </template>
-<style>
-    .navContent{
-        background: red;
-=======
-    <div class="app-container com-app-box">
-        <Hearderbar :commData="commConf"></Hearderbar>
-        <div class="zhanwei"></div>
-        <div class="com-app">
-            <transition :name="transitionName">
-                <keep-alive >
-                    <router-view class="child-view" v-if="$route.meta.keepAlive"></router-view>
-                </keep-alive>
-            </transition>
-            <transition :name="transitionName">
-                <router-view v-if="!$route.meta.keepAlive" class="child-view"></router-view>
-            </transition>
-        </div>
-        <div class="zhanwei" v-show="commConf.isFooter"></div>
-        <Footerbar :commData="commConf" v-show="commConf.isFooter"></Footerbar>
-        <Loadingbar :LoadingText="loadingConf.loadingText"  v-show="loadingConf.isLoading"></Loadingbar>
-        <mu-toast v-if="loadingConf.isToast" :message="loadingConf.toastText" />
-    </div>
-</template>
+
 <script>
-    import Hearderbar from './components/Header.vue'
-    import Footerbar from './components/Footer.vue'
-    import Loadingbar from './components/loading/Loading.vue'
-    export default {
-        components: {
-            Hearderbar,
-            Footerbar,
-            Loadingbar
+    import Navbar from './components/Navbar/Navbar.vue'
+    import Slidebar from './components/Sidebar/Sidebar.vue'
+    export default{
+        components:{
+            Navbar,
+            Slidebar
         },
-        data () {
-            return {
-                commData:{
-                    title:'育儿期',
-                    isFooter:true
-                },
-                transitionName:"slide-left-s"
-          }
-        },
-        watch: {
-            '$route' (to, from) {
-                const toDepth = to.path.split('/').length
-                const fromDepth = from.path.split('/').length
-                this.transitionName = toDepth < fromDepth ? 'slide-right-s' : 'slide-left-s'
+        data(){
+            return{
             }
         },
-        //获取vuex的公共参数。
         computed:{
             commConf:function () {
+                console.log(this.$store.getters.commConf.showSiderbar);
+
                 return  this.$store.getters.commConf
-            },
-            loadingConf:function () {
-                var  Obj = this.$store.getters.loadingConf;
-                return  Obj
             }
-        }
+        },
+        //监听设备状态,电脑状态下需要隐藏。
+        beforeMount (){
+            const { body } = document
+            const WIDTH = 768
+            const RATIO = 3
+            const handler = () => {
+                if (!document.hidden) {
+                    let rect = body.getBoundingClientRect()
+                    let isMobile = rect.width - RATIO < WIDTH
+                    if (!isMobile){
+                        this.$store.commit('COMM_CONF',{
+                            showSiderbar:true
+                        });
+                    }
+                }
+            }
+            document.addEventListener('visibilitychange', handler)
+            window.addEventListener('DOMContentLoaded', handler)
+            window.addEventListener('resize', handler)
+        },
     }
 </script>
-<style>
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity .1s ease;
-    }
-    .fade-enter, .fade-leave-active {
-        opacity: 0
->>>>>>> ef646ee534ff3a8b2a88f580fa0457c629c301e7
-    }
 
-    .child-view {
-        position: absolute;
-        width: 100%;
-        transition: all .2s cubic-bezier(.55,0,.1,1);
-    }
-    .slide-left-s-enter, .slide-right-s-leave-active {
-        opacity: 0;
-        -webkit-transform: translate(30px, 0);
-        transform: translate(30px, 0);
-    }
-    .slide-left-s-leave-active, .slide-right-s-enter {
-        opacity: 0;
-        -webkit-transform: translate(-30px, 0);
-        transform: translate(-30px, 0);
-    }
-    .com-app{
-        position: relative;
-        height: calc(100vh - 2.66667rem);
-        width: 100%;
-        overflow: scroll;
-    }
-    .com-app-box{
-        position: relative;
-        height: 100vh;
-    }
+<style>
+
 </style>
 

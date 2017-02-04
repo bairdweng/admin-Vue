@@ -13,7 +13,8 @@ const state = {
     selectIndex:'tab1',//当前选择
     tab1:'育儿期',//底部tab文字1
     tab2:'阅读',//底部tab文字2
-    tab3:'我'//底部tab文字3
+    tab3:'我',//底部tab文字3,
+    showSiderbar:false//显示左边菜单。
 };
 const actions  = {
     commConf({commit},settings){
